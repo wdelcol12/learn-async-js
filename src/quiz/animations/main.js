@@ -9,6 +9,9 @@ const aliceTumbling = [
     fill: 'forwards'
   }
   
+
+  async function async_animate(){
+  try {
   const alice1 = document.querySelector("#alice1");
   const alice2 = document.querySelector("#alice2");
   const alice3 = document.querySelector("#alice3");
@@ -26,6 +29,24 @@ const aliceTumbling = [
                 alice3.animate(aliceTumbling, aliceTiming);
             })
     });
+  } catch (err){
+    console.log(`Error: , ${err}`)
+  }
+  }
+  async_animate();
+  console.log('Ended Main')
+
+
+  async function aliceAnimation(alice){
+    try {
+      await alice.animate(aliceTumbling, aliceTiming).finished;
+    }catch(err) {
+      console.log(`Error: , ${err}`)
+    }
+  }
+
+
+
 
   // Promise chain  
   // alice1.animate(aliceTumbling, aliceTiming).finished  

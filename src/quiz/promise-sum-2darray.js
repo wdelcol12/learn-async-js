@@ -24,20 +24,26 @@ const array2D = [
     [7, 8, 9]
 ];
 
+async function calculateSum(){
 let promisesCollection = []
 
 for (let i = 0; i < array2D.length; i++) {
     promisesCollection.push(sumRow(array2D[i]));
 }
 
-Promise.all(promisesCollection)
-.then((promiseReturn) => {
-    let sum = 0;
-    promiseReturn.forEach(promiseReturn => {
-        sum += promiseReturn;
-    });
-    console.log('Final Sum:', sum);
-})
-.catch((error) => {
-    console.error('Error:', error);
-});
+try {
+        const sums = await Promise.all(promisesCollection)
+            let sum = 0;
+            sums.forEach(promiseReturn => {
+                sum += promiseReturn;
+            });
+            console.log('Final Sum:', sum);
+            return 'Success'
+        
+} catch(err) {
+    console.log(`Error: ${err}`);
+    return 'error'
+}
+
+}
+calculateSum()
