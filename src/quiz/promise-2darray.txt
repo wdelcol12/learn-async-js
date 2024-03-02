@@ -1,1 +1,5 @@
 Explain the code execution based on the order of the messages logged in src/quiz/promise-2darray.txt.
+
+The first function is called and then returns the "returning from sum" message meanwhile the second function
+is also called and returns its rejected method indicating it is a bad array before returning the final sum
+of the array of the first question.
